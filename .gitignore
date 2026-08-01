@@ -1,0 +1,73 @@
+# Unreal Engine generated files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.sdf
+*.sln
+*.suo
+*.opensdf
+*.opendb
+*.user
+*.userprefs
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Build products
+Build/Receipts/
+Build/*/FileOpenOrder/
+*.target
+*.modules
+*.version
+
+# Unreal Engine temporary and backup files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+*.autosave
+*.swp
+*.swo
+
+# Compiled objects and libraries
+*.obj
+*.o
+*.lo
+*.dll
+*.dylib
+*.so
+*.lib
+*.a
+*.pdb
+*.ipch
+*.pch
+*.exp
+
+# Packaged builds
+PackagedBuilds/
+StagedBuilds/
+
+# Plugin generated files
+Plugins/**/Binaries/
+Plugins/**/Intermediate/
+Plugins/**/DerivedDataCache/
+Plugins/**/Saved/
+
+# Platform and OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Crash reports
+crashinfo--*
