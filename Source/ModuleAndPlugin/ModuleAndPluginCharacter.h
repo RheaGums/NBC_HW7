@@ -46,9 +46,10 @@ class AModuleAndPluginCharacter : public ACharacter
 
 public:
 	AModuleAndPluginCharacter();
-	
 
 protected:
+	// 캐릭터가 플레이를 시작할 때 Test 모듈의 액터를 생성합니다.
+	virtual void BeginPlay() override;
 
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);

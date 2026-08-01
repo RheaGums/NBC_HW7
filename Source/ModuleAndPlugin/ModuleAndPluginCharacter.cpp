@@ -1,7 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "ModuleAndPluginCharacter.h"
+#include "TestActor.h"
+
 #include "Engine/LocalPlayer.h"
+#include "Engine/World.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -52,6 +55,25 @@ AModuleAndPluginCharacter::AModuleAndPluginCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+}
+
+void AModuleAndPluginCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (UWorld* World = GetWorld())
+	{
+		ATestActor* SpawnedTestActor = World->SpawnActor<ATestActor>(
+			ATestActor::StaticClass(),
+			GetActorLocation(),
+			GetActorRotation()
+		);
+
+		if (!SpawnedTestActor)
+		{
+			UE_LOG(LogTemplateCharacter, Warning, TEXT("Failed to spawn ATestActor"));
+		}
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////
