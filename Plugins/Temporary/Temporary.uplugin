@@ -1,0 +1,17 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Temporary",
+	"Description": "A reusable runtime plugin created for the module and plugin exercise.",
+	"Category": "Learning",
+	"CanContainContent": true,
+	"EnabledByDefault": false,
+	"Modules": [
+		{
+			"Name": "Temporary",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
