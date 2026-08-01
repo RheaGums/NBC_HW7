@@ -11,6 +11,7 @@ class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
+class UCharacterData;
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
@@ -43,6 +44,10 @@ class AModuleAndPluginCharacter : public ACharacter
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
+
+	// Test 모듈에서 생성한 캐릭터 데이터를 가비지 컬렉션으로부터 안전하게 보관합니다.
+	UPROPERTY(VisibleInstanceOnly, Category = "Character Data")
+	TObjectPtr<UCharacterData> CharacterData;
 
 public:
 	AModuleAndPluginCharacter();

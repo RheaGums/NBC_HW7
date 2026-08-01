@@ -1,8 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "ModuleAndPluginCharacter.h"
+#include "CharacterData.h"
 #include "TestActor.h"
 
+#include "Engine/Engine.h"
 #include "Engine/LocalPlayer.h"
 #include "Engine/World.h"
 #include "Camera/CameraComponent.h"
@@ -72,6 +74,26 @@ void AModuleAndPluginCharacter::BeginPlay()
 		if (!SpawnedTestActor)
 		{
 			UE_LOG(LogTemplateCharacter, Warning, TEXT("Failed to spawn ATestActor"));
+		}
+	}
+
+	// 캐릭터를 Outer로 지정하고 Test 모듈의 UObject 데이터 인스턴스를 생성합니다.
+	CharacterData = NewObject<UCharacterData>(this);
+
+	if (IsValid(CharacterData))
+	{
+		const FString DataMessage = FString::Printf(
+			TEXT("Character Data - Name: %s | MaxHealth: %d | MoveSpeed: %.1f"),
+			*CharacterData->CharacterName,
+			CharacterData->MaxHealth,
+			CharacterData->MoveSpeed
+		);
+
+		UE_LOG(LogTemplateCharacter, Log, TEXT("%s"), *DataMessage);
+
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Yellow, DataMessage);
 		}
 	}
 }

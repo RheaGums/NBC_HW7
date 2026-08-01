@@ -8,9 +8,7 @@ public class ModuleAndPlugin : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
-
-		// TestActor는 이 모듈의 cpp 파일에서만 사용하므로 Private 의존성으로 연결합니다.
-		PrivateDependencyModuleNames.Add("Test");
+		// CharacterData가 공개 캐릭터 헤더의 UPROPERTY 타입으로 사용되므로 Test는 Public 의존성입니다.
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "Test" });
 	}
 }
